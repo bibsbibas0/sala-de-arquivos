@@ -12,7 +12,16 @@ body {
     height: 100vh;
 }
 
-h1 {
+.titulo-entrada {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 40px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000;
+}
+
+.titulo-sala {
     font-family: 'Orbitron', sans-serif;
     font-size: 3em;
     text-align: center;
@@ -22,6 +31,7 @@ h1 {
     -webkit-text-fill-color: transparent;
     text-shadow: none;
 }
+
 
 #porta {
     max-width: 400px;
