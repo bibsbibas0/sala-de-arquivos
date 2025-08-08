@@ -155,3 +155,13 @@ li a:hover {
     font-weight: bold;
     text-shadow: 0 0 5px #000;
 }
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  color: #fff;
+  background: linear-gradient(to right, #6a0dad, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-top: 40px;
+}
