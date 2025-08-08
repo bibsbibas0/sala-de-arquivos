@@ -138,3 +138,8 @@ li a:hover {
 .arquivo {
     position: relative;
 }
+.nome {
+    color: #ffd700;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000;
+}
