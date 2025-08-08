@@ -1,0 +1,35 @@
+body {
+    background-color: #111;
+    color: #eee;
+    font-family: 'Courier New', monospace;
+    text-align: center;
+    padding: 50px;
+}
+
+input, button {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#porta {
+    border: 2px solid #444;
+    padding: 20px;
+    background-color: #222;
+    display: inline-block;
+}
+
+#sala {
+    text-align: left;
+    margin: auto;
+    max-width: 500px;
+}
