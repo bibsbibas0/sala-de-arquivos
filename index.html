@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Arquivos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="porta">
+        <h1>🔒 Sala de Arquivos</h1>
+        <p>Digite a senha para entrar:</p>
+        <input type="password" id="senha" placeholder="Senha">
+        <button onclick="verificarSenha()">Entrar</button>
+        <p id="erro"></p>
+    </div>
+
+    <div id="sala" style="display:none;">
+        <h1>📁 Relatórios da Seita</h1>
+        <p>Clique nos arquivos para abrir.</p>
+        <ul>
+            <li><a href="#">Relatório 01 - Início das Investigações</a></li>
+            <li><a href="#">Relatório 02 - Ocorrência Estranha</a></li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
