@@ -138,3 +138,13 @@ li a:hover {
 .arquivo {
     position: relative;
 }
+#sala > p {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #e0d6b9;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #5c3d2e;
+    padding-bottom: 10px;
+}
