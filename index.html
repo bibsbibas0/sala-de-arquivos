@@ -21,57 +21,113 @@
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
         <p>Casta de Arquivos referentes à: <span class="nome">BILLY NEVILLE</span>.</p>
         
-<div class="arquivos">
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO - 03/10</h2>
-        <p>Incidente de Bristol</p>
-        <a href="#">Abrir Arquivo</a>
+        <div class="arquivos">
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO - 03/10</h2>
+                <p>Incidente de Bristol</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-03-10')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 07/10</h2>
+                <p>Missão Caronte</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-07-10')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 09/10</h2>
+                <p>Missão Caronte</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-09-10')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 12/10</h2>
+                <p>Missão Mason</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-12-10')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 13/10</h2>
+                <p>Encontro Detetive</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-13-10')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 15/10</h2>
+                <p>Primeiro Encontro: Ordo Realitas</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-15-10a')">Abrir Arquivo</a>
+            </div>
+
+            <div class="arquivo">
+                <span class="selo">CONFIDENCIAL</span>
+                <h2>RELATÓRIO 15/10</h2>
+                <p>Incidente do Palácio Neville</p>
+                <a href="#" onclick="abrirRelatorio('relatorio-15-10b')">Abrir Arquivo</a>
+            </div>
+        </div>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 07/10</h2>
-        <p>Missão Caronte</p>
-        <a href="#">Abrir Arquivo</a>
+    <!-- Relatórios individuais -->
+    <div id="relatorio-03-10" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 03/10</h1>
+        <p><strong>Missão:</strong> Incidente de Bristol</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Durante a noite de 03/10, o agente foi enviado para investigar uma anomalia em Bristol. O local apresentava sinais de atividade paranormal...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-03-10')">Fechar</a>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 09/10</h2>
-        <p>Missão Caronte</p>
-        <a href="#">Abrir Arquivo</a>
+    <div id="relatorio-07-10" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 07/10</h1>
+        <p><strong>Missão:</strong> Caronte</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> A missão envolveu o rastreamento de uma entidade desconhecida nos arredores de Liverpool. A equipe encontrou vestígios de rituais antigos...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-07-10')">Fechar</a>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 12/10</h2>
-        <p>Missão Mason</p>
-        <a href="#">Abrir Arquivo</a>
+    <div id="relatorio-09-10" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 09/10</h1>
+        <p><strong>Missão:</strong> Caronte</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Continuação da missão anterior. A entidade demonstrou comportamento inteligente e evasivo. Foi necessário reforço de campo...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-09-10')">Fechar</a>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 13/10</h2>
-        <p>Encontro Detetive</p>
-        <a href="#">Abrir Arquivo</a>
+    <div id="relatorio-12-10" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 12/10</h1>
+        <p><strong>Missão:</strong> Mason</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Investigação sobre o desaparecimento de arquivos confidenciais. A suspeita recai sobre membros internos da organização...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-12-10')">Fechar</a>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 15/10</h2>
-        <p>Primeiro Encontro: Ordo Realitas</p>
-        <a href="#">Abrir Arquivo</a>
+    <div id="relatorio-13-10" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 13/10</h1>
+        <p><strong>Missão:</strong> Encontro com Detetive</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Reunião com o detetive responsável pela investigação paralela. Informações trocadas indicam envolvimento de forças externas...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-13-10')">Fechar</a>
     </div>
 
-    <div class="arquivo">
-        <span class="selo">CONFIDENCIAL</span>
-        <h2>RELATÓRIO 15/10</h2>
-        <p>Incidente do Palácio Neville</p>
-        <a href="#">Abrir Arquivo</a>
+    <div id="relatorio-15-10a" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 15/10</h1>
+        <p><strong>Missão:</strong> Primeiro Encontro: Ordo Realitas</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Primeira reunião oficial com representantes da Ordo Realitas. Foram discutidas estratégias conjuntas para contenção de ameaças...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-15-10a')">Fechar</a>
     </div>
-</div>
 
+    <div id="relatorio-15-10b" class="pagina-relatorio" style="display:none;">
+        <h1>RELATÓRIO - 15/10</h1>
+        <p><strong>Missão:</strong> Incidente do Palácio Neville</p>
+        <p><strong>Agente:</strong> Billy Neville</p>
+        <p><strong>Resumo:</strong> Durante o evento no Palácio Neville, uma ruptura dimensional foi detectada. A contenção foi realizada com sucesso, mas deixou marcas no local...</p>
+        <a href="#" onclick="fecharRelatorio('relatorio-15-10b')">Fechar</a>
     </div>
 
     <script src="script.js"></script>
