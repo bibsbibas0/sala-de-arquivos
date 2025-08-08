@@ -72,3 +72,53 @@ li a {
 li a:hover {
     background-color: #3e3e3e;
 }
+.arquivos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.arquivo {
+    background-color: rgba(46, 46, 46, 0.95); /* tom escuro, mas translúcido */
+    border-left: 5px solid #5c3d2e;
+    padding: 20px;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #000;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.arquivo:hover {
+    transform: scale(1.05);
+    background-color: rgba(62, 62, 62, 0.95);
+}
+
+.arquivo h2 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    color: #e0d6b9;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.arquivo p {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #cbbca4;
+}
+
+.arquivo a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #5c3d2e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 1px 1px 4px #000;
+}
+
+.arquivo a:hover {
+    background-color: #7a523b;
+}
