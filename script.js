@@ -10,3 +10,12 @@ function verificarSenha() {
         erro.style.color = "red";
     }
 }
+function abrirRelatorio(id) {
+    document.getElementById("sala").style.display = "none";
+    document.getElementById(id).style.display = "block";
+}
+
+function fecharRelatorio(id) {
+    document.getElementById(id).style.display = "none";
+    document.getElementById("sala").style.display = "block";
+}
