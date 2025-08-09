@@ -1,4 +1,4 @@
-/* ======= script.js (substituir todo o arquivo) ======= */
+/* ======= script.js ======= */
 
 /* senha / entrada */
 function verificarSenha() {
@@ -17,6 +17,14 @@ function verificarSenha() {
     }
   }
 }
+
+/* atalho: pressionar Enter também chama verificarSenha() */
+document.getElementById("senha").addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault(); // evita recarregar
+    verificarSenha();
+  }
+});
 
 /* --- cria (se não existir) o overlay que vamos usar para mostrar documentos em modal --- */
 (function ensureOverlay(){
