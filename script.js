@@ -119,9 +119,9 @@ document.addEventListener('keydown', function(e){
 // frases do Guardião — clique pra ele "falar"
 const guardiaoFrases = [
   "Nada escapa do meu olhar.",
-  "Silêncio. Arquivos em sigilo.",
-  "Organizar é esquecer menos segredos.",
-  "Se algo sumiu, eu sei onde está.",
+  "Estou à sua disposição.",
+  "Organizar é meu nome do meio. E, de nada.",
+  "Nada sumiu. Nada que você precise saber.",
   "Toque com cuidado. O segredo não gosta de ruído."
 ];
 
