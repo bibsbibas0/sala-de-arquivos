@@ -145,7 +145,12 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
   box-shadow: 0 14px 30px rgba(0,0,0,0.32);
 }
 
-.arquivo h2 { color:#2e2e2e; margin:0 0 8px 0; font-size:1.05em; }
+.arquivo h2 {
+    color: #2e2e2e;
+    text-shadow: none;
+    margin-top: 80px; /* <--- Aí que você coloca! */
+}
+
 .arquivo p { margin:0 0 12px 0; color:#555; font-size:0.95em; }
 
 /* link do arquivo estilizado */
