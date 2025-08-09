@@ -305,10 +305,13 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
 }
 /* ----- Guardião dos Arquivos ----- */
 .guardiao-container {
+  position: fixed; /* agora ele fica preso na tela */
+  bottom: 20px; /* distância do fundo */
+  right: 20px; /* distância da lateral */
   display: flex;
-  justify-content: flex-end; /* aparece à direita */
-  padding: 8px 28px 0 28px;
-  pointer-events: none; /* container não captura clique, o card sim */
+  justify-content: flex-end;
+  pointer-events: none; /* container não captura clique, só o card sim */
+  z-index: 100; /* garante que aparece por cima do fundo */
 }
 
 /* Guardião — versão maior (rápida) */
