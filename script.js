@@ -116,3 +116,24 @@ document.addEventListener('keydown', function(e){
     document.body.style.overflow = '';
   }
 });
+// frases do Guardião — clique pra ele "falar"
+const guardiaoFrases = [
+  "Nada escapa do meu olhar.",
+  "Silêncio. Arquivos em sigilo.",
+  "Organizar é esquecer menos segredos.",
+  "Se algo sumiu, eu sei onde está.",
+  "Toque com cuidado. O segredo não gosta de ruído."
+];
+
+function guardiaoFala() {
+  const el = document.getElementById('guardiao-frase');
+  if (!el) return;
+  const idx = Math.floor(Math.random() * guardiaoFrases.length);
+  el.style.transform = 'translateY(-4px)';
+  el.style.opacity = '0';
+  setTimeout(() => {
+    el.textContent = guardiaoFrases[idx];
+    el.style.transform = 'translateY(0)';
+    el.style.opacity = '1';
+  }, 160);
+}
