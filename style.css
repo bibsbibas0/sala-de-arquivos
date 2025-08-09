@@ -163,17 +163,21 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
 
 /* selo de confidencial */
 .selo {
-  background-color: var(--seal-red);
-  color: #fff;
-  font-size: 0.8em;
-  padding: 4px 8px;
-  border-radius: 4px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-weight: 800;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
-  letter-spacing: 1px;
+    position: absolute;
+    top: 20px; /* desce um pouco pra não colar no topo */
+    right: 20px;
+    padding: 10px 20px;
+    background-color: rgba(255, 0, 0, 0.15); /* vermelho translúcido */
+    border: 2px solid rgba(255, 0, 0, 0.6);
+    color: rgba(255, 0, 0, 0.8);
+    font-weight: bold;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: rotate(-15deg); /* carimbo inclinado */
+    pointer-events: none; /* não clica */
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    z-index: 5; /* fica por cima, mas não sobre o título */
 }
 
 /* --- página-relatorio (suporte legado) --- */
