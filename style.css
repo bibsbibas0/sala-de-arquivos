@@ -303,3 +303,65 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
   .cabecalho-doc h1 { font-size: 1.25em; }
   .arquivo { width: 100%; max-width: 420px; }
 }
+/* ----- Guardião dos Arquivos ----- */
+.guardiao-container {
+  display: flex;
+  justify-content: flex-end; /* aparece à direita */
+  padding: 8px 28px 0 28px;
+  pointer-events: none; /* container não captura clique, o card sim */
+}
+
+.guardiao-card {
+  pointer-events: auto; /* o card aceita clique */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(10,8,6,0.45); /* vidro escuro sobre a madeira */
+  backdrop-filter: blur(4px) saturate(1.05);
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.04);
+  max-width: 320px;
+  cursor: pointer;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+
+.guardiao-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+}
+
+/* Imagem do guardião */
+.guardiao-img {
+  width: 78px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,0.5);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+}
+
+/* Metadados (nome + frase) */
+.guardiao-meta { color: #efe7dc; font-family: 'Cormorant Garamond', serif; }
+.guardiao-nome {
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.6px;
+  color: #ffdca3;
+}
+.guardiao-frase {
+  font-size: 0.82em;
+  color: #e6d9c2;
+  opacity: 0.95;
+  margin-top: 4px;
+  transition: opacity .12s ease, transform .12s ease;
+}
+
+/* versão mobile: ocupa menos espaço */
+@media (max-width: 700px) {
+  .guardiao-card { max-width: 92%; gap: 10px; padding: 8px; }
+  .guardiao-img { width: 62px; height: 82px; }
+  .guardiao-nome { font-size: 0.9em; }
+  .guardiao-frase { font-size: 0.78em; }
+}
