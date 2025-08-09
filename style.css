@@ -1,239 +1,296 @@
-/* style.css */
+/* ======= style.css (substituir todo o arquivo) ======= */
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Cormorant Garamond', serif;
-    color: #e0d6b9;
-    background-image: url('madeira.png'); /* fundo de madeira em toda a tela */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+/* --- base / fundo --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+:root{
+  --paper-bg: #f9f6ee;
+  --accent: #c2b280;
+  --darkwood: #221a16;
+  --seal-red: #8b0000;
 }
 
+/* Reset simples */
+* { box-sizing: border-box; }
+
+/* Body / fundo geral */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  color: #e0d6b9;
+  background-image: url('madeira.png'); /* assegure que madeira.png exista */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* --- títulos --- */
 .titulo-entrada {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3em;
-    text-align: center;
-    margin-top: 40px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px #000;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 40px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000;
 }
 
 .titulo-sala {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3em;
-    text-align: center;
-    margin-top: 40px;
-    background: linear-gradient(to right, #444, #000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.4em;
+  text-align: center;
+  margin-top: 24px;
+  color: #efe7dc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-
+/* --- Porta (login) --- */
 #porta {
-    max-width: 400px;
-    margin: 60px auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    box-shadow: 0 0 20px #000;
-    border: 2px solid #5c3d2e;
+  max-width: 420px;
+  margin: 60px auto;
+  padding: 22px;
+  background-color: rgba(0,0,0,0.6);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  border: 2px solid #5c3d2e;
+  border-radius: 8px;
+  text-align: center;
 }
 
-/* Campo de senha */
+/* Inputs e botões (unificados e consistentes) */
 input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    font-size: 1em;
-    background-color: #2e2e2e;
-    color: #e0d6b9;
-    border: 1px solid #5c3d2e;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
+  font-size: 1em;
+  background-color: #2e2e2e;
+  color: #e0d6b9;
+  border: 1px solid #5c3d2e;
+  border-radius: 6px;
 }
 
-/* Botão de entrar */
 button {
-    padding: 8px 16px;
-    font-size: 0.9em;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #5c3d2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform .12s ease, background-color .12s ease;
 }
 
+button:hover { transform: translateY(-2px); background-color:#7a523b; }
+
+/* Sala (lista de arquivos) */
 #sala {
-    background-image: url('madeira.png');
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
-    border-radius: 0;
-    box-shadow: inset 0 0 30px #000;
-    color: #f5f0e6;
+  padding: 30px;
+  color: #f5f0e6;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+  min-height: 60vh;
 }
 
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    font-size: 1em;
-    background-color: #2e2e2e;
-    color: #e0d6b9;
-    border: 1px solid #5c3d2e;
-    border-radius: 5px;
+/* mensagem / subtítulo */
+#sala > p {
+  font-size: 1.1em;
+  font-style: italic;
+  color: #d4c4a1;
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgba(44,36,30,0.5);
+  padding: 10px 20px;
+  border-left: 5px solid #5c3d2e;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.35);
+  border-radius: 6px;
 }
 
-button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #5c3d2e;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
+/* Nome em destaque */
+.nome {
+  color: #ffd700;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
 }
 
-button:hover {
-    background-color: #7a523b;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li a {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
-    background-color: #2e2e2e;
-    color: #e0d6b9;
-    text-decoration: none;
-    border-left: 5px solid #5c3d2e;
-    transition: background 0.3s;
-}
-
-li a:hover {
-    background-color: #3e3e3e;
-}
+/* --- Grid de arquivos --- */
 .arquivos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 10px;
+  padding-bottom: 40px;
 }
 
+/* cartão de arquivo: aparência de papel envelhecido */
 .arquivo {
-    background-color: #ffffff; /* branco puro */
-    border-left: 5px solid #c2b280; /* tom de papel ou etiqueta */
-    padding: 20px;
-    width: 250px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* sombra mais suave */
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    color: #333; /* texto escuro pra contraste */
+  background: linear-gradient(180deg, #fbf7ee 0%, #f1ead6 100%);
+  border-left: 6px solid var(--accent);
+  padding: 18px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+  color: #222;
+  cursor: pointer;
 }
 
 .arquivo:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.32);
 }
 
-.arquivo h2 {
-    color: #2e2e2e;
-    text-shadow: none;
-}
+.arquivo h2 { color:#2e2e2e; margin:0 0 8px 0; font-size:1.05em; }
+.arquivo p { margin:0 0 12px 0; color:#555; font-size:0.95em; }
 
-.arquivo p {
-    color: #555;
-    font-style: normal;
-}
-
+/* link do arquivo estilizado */
 .arquivo a {
-    background-color: #c2b280;
-    color: #000;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+  display:inline-block;
+  padding:8px 12px;
+  background:var(--accent);
+  color:#111;
+  text-decoration:none;
+  border-radius:6px;
+  font-weight:700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
+.arquivo a:hover { background:#d6c6a1; }
 
-.arquivo a:hover {
-    background-color: #d6c6a1;
-}
-
-.arquivo a:hover {
-    background-color: #7a523b;
-}
+/* selo de confidencial */
 .selo {
-    background-color: #8b0000;
-    color: #fff;
-    font-size: 0.8em;
-    padding: 4px 8px;
-    border-radius: 4px;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-weight: bold;
-    box-shadow: 1px 1px 4px #000;
-    letter-spacing: 1px;
+  background-color: var(--seal-red);
+  color: #fff;
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 4px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: 800;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  letter-spacing: 1px;
 }
-.arquivo {
-    position: relative;
-}
-#sala > p {
-    font-size: 1.2em;
-    font-style: italic;
-    color: #d4c4a1;
-    text-align: center;
-    margin-bottom: 30px;
-    background-color: rgba(44, 36, 30, 0.5);
-    padding: 10px 20px;
-    border-left: 5px solid #5c3d2e;
-    box-shadow: inset 0 0 10px #000;
-    border-radius: 6px;
-}
-.nome {
-    color: #ffd700;
-    font-weight: bold;
-    text-shadow: 0 0 5px #000;
-}
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin-top: 40px;
-}
+
+/* --- página-relatorio (suporte legado) --- */
 .pagina-relatorio {
-    background-color: #ffffff;
-    color: #333;
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 40px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: 'Cormorant Garamond', serif;
-    line-height: 1.6;
+  /* mantemos um estilo simples caso algum bloco ainda use só essa classe */
+  background-color: #ffffff;
+  color: #333;
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.18);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.6;
 }
 
-.pagina-relatorio h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #111;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
+/* ================= DOCUMENTO (modal estilizado) ================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,10,0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  padding: 28px;
 }
 
-.pagina-relatorio a {
-    display: block;
-    margin-top: 30px;
-    text-align: center;
-    background-color: #c2b280;
-    color: #000;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+.overlay.active { display:flex; animation: fadeIn .18s ease; }
+
+@keyframes fadeIn { from { opacity:0 } to { opacity:1 } }
+
+/* documento real (limpo) -- usado pelo modal */
+.documento {
+  background: var(--paper-bg);
+  color: #111;
+  max-width: 820px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 36px 46px;
+  border: 1px solid #e0d7c7;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  line-height: 1.7;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  border-radius: 6px;
+  position: relative;
+  z-index: 9999;
+  transform: translateY(6px);
+  animation: docPop .18s cubic-bezier(.2,.8,.2,1);
 }
 
-.pagina-relatorio a:hover {
-    background-color: #d6c6a1;
+@keyframes docPop {
+  from { opacity:0; transform: translateY(18px) scale(.98) }
+  to { opacity:1; transform: translateY(0) scale(1) }
+}
+
+/* cabeçalho do documento */
+.cabecalho-doc {
+  text-align: center;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e6e0d6;
+}
+
+.data-doc {
+  display: block;
+  font-size: 0.9em;
+  color: #6b5e4a;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.cabecalho-doc h1 {
+  margin: 0;
+  font-size: 1.6em;
+  letter-spacing: 1px;
+}
+
+.subtitulo-doc { margin-top:6px; font-size:0.95em; color:#5a4b38; }
+
+/* metadados (lista) */
+.metadados { list-style: none; padding:0; margin:10px 0 18px 0; display:block; }
+.metadados li { margin-bottom:6px; color:#222; font-weight:600; }
+
+/* corpo do texto */
+.texto-relatorio p { margin-bottom:12px; text-align: justify; color:#222; }
+
+/* rodapé */
+.rodape-doc {
+  margin-top: 22px;
+  padding-top: 10px;
+  border-top: 1px solid #e6e0d6;
+  text-align: center;
+  color: #6b5e4a;
+  font-size: 0.9em;
+}
+
+/* botão fechar no documento (visível dentro do modal) */
+.fechar-doc {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #111;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
+  border: none;
+}
+.fechar-doc:hover { transform: translateY(-2px); }
+
+/* estilo responsivo e pequenos ajustes */
+@media (max-width: 900px) {
+  .documento { padding: 22px; margin: 18px; }
+  .cabecalho-doc h1 { font-size: 1.25em; }
+  .arquivo { width: 100%; max-width: 420px; }
 }
