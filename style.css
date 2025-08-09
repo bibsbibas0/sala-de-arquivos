@@ -237,3 +237,95 @@ li a:hover {
 .pagina-relatorio a:hover {
     background-color: #d6c6a1;
 }
+/* ------- Estilo para documentos (formato limpo, profissional) ------- */
+.documento {
+  background: #fff;
+  color: #111;
+  max-width: 820px;
+  margin: 40px auto;
+  padding: 36px 46px;
+  border: 1px solid #e0d7c7;
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  line-height: 1.7;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+  border-radius: 6px;
+}
+
+/* Cabeçalho do documento */
+.cabecalho-doc {
+  text-align: center;
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e6e0d6;
+}
+
+.data-doc {
+  display: block;
+  font-size: 0.9em;
+  color: #6b5e4a;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.cabecalho-doc h1 {
+  margin: 0;
+  font-size: 1.8em;
+  letter-spacing: 1px;
+}
+
+.subtitulo-doc {
+  margin-top: 6px;
+  font-size: 0.95em;
+  color: #5a4b38;
+}
+
+/* Metadados (Missão, Agente) */
+.metadados {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+}
+
+.metadados li {
+  margin-bottom: 6px;
+  color: #2f2f2f;
+  font-weight: 500;
+}
+
+/* Corpo do texto */
+.texto-relatorio p {
+  margin-bottom: 12px;
+  text-align: justify;
+  text-justify: inter-word;
+  color: #222;
+}
+
+/* Rodapé */
+.rodape-doc {
+  margin-top: 22px;
+  padding-top: 10px;
+  border-top: 1px solid #e6e0d6;
+  text-align: center;
+  color: #6b5e4a;
+  font-size: 0.9em;
+}
+
+/* Botão fechar */
+.fechar-doc {
+  display: inline-block;
+  margin: 18px auto 0;
+  padding: 8px 18px;
+  background: #c2b280;
+  color: #111;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+}
+.fechar-doc:hover { transform: translateY(-2px); }
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .documento { padding: 24px; margin: 24px 16px; }
+  .cabecalho-doc h1 { font-size: 1.4em; }
+}
