@@ -5,7 +5,7 @@ function verificarSenha() {
   const senha = document.getElementById("senha").value;
   const erro = document.getElementById("erro");
 
-  if (senha === "0407") {
+  if (senha === "leandro09") {
     document.getElementById("porta").style.display = "none";
     document.getElementById("sala").style.display = "block";
     // remover mensagem de erro caso houvesse
