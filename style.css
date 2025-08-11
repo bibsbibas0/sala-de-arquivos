@@ -370,3 +370,24 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
   .guardiao-nome { font-size: 0.9em; }
   .guardiao-frase { font-size: 0.78em; }
 }
+/* Ajustes mobile para tela de login */
+@media (max-width: 700px) {
+  #porta {
+    margin: 0 auto;
+    margin-top: 20vh; /* centraliza verticalmente um pouco mais */
+    padding: 18px;
+    width: 90%;
+    max-width: 320px; /* mais estreito no mobile */
+  }
+
+  .titulo-entrada {
+    font-size: 2em;
+    margin-top: 0;
+  }
+
+  input[type="password"],
+  button {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
