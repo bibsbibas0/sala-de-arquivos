@@ -1,4 +1,4 @@
-/* script.js (VERSÃO ESTÁVEL - substituir TODO o arquivo) */
+/* script.js (VERSÃO ATUALIZADA: adicionada setLoginModeClass) */
 
 /* ======== Configurações ======== */
 /* Senhas válidas (adicione/remova strings conforme quiser) */
@@ -22,11 +22,26 @@ window.verificarSenha = function() {
       erro.style.color = "#ff6b6b";
     }
   }
+
+  // Atualiza a classe do body para ativar/desativar o modo login (corrige comportamento mobile)
+  setLoginModeClass();
 };
 
 /* ======== Estado global ======== */
 window.currentOpenRel = null;
 window._mobileEdgeHandler = null;
+
+/* ======== Função para controlar a classe de 'login-mode' no body ======== */
+function setLoginModeClass() {
+  const porta = document.getElementById('porta');
+  if (!porta) return;
+  // se a porta estiver visível, ativamos o modo de centralização no mobile
+  if (getComputedStyle(porta).display !== 'none') {
+    document.body.classList.add('login-mode');
+  } else {
+    document.body.classList.remove('login-mode');
+  }
+}
 
 /* ======== Overlay (cria se não existir) ======== */
 function ensureOverlay() {
@@ -94,16 +109,16 @@ window.abrirRelatorio = function(id) {
   overlay.appendChild(rel);
 
   // garantir estilo modal
-  rel.classList.add("documento");
-  rel.style.display = "block";
-  rel.style.position = "relative";
-  rel.style.margin = "0 auto";
-  rel.style.zIndex = "10000";
+  rel.classList.add('documento');
+  rel.style.display = 'block';
+  rel.style.position = 'relative';
+  rel.style.margin = '0 auto';
+  rel.style.zIndex = '10000';
 
   // bloquear scroll do body (fundo) e ativar overlay
-  document.body.style.overflow = "hidden";
-  overlay.classList.add("active");
-  overlay.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = 'hidden';
+  overlay.classList.add('active');
+  overlay.setAttribute('aria-hidden', 'false');
 
   // salvar estado e ativar fechar por borda no mobile
   window.currentOpenRel = id;
@@ -144,7 +159,10 @@ window.fecharRelatorio = function(id) {
 
   document.body.style.overflow = "";
   window.currentOpenRel = null;
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Atualiza a classe do body caso a interface precise voltar pro modo login (não deveria aqui)
+  setLoginModeClass();
 };
 
 /* ======== Mobile: fechar ao tocar borda ======== */
@@ -235,4 +253,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   }
+
+  // Atualiza o modo de login no body (corrige o problema de scroll/mobile)
+  setLoginModeClass();
 });
