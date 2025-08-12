@@ -370,23 +370,32 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
   .guardiao-nome { font-size: 0.9em; }
   .guardiao-frase { font-size: 0.78em; }
 }
-/* Ajustes mobile para tela de login */
 @media (max-width: 700px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* força altura total */
+    padding: 0;
+    margin: 0;
+  }
+
   #porta {
-    margin: 0 auto;
-    margin-top: 20vh; /* centraliza verticalmente um pouco mais */
-    padding: 18px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    padding: 24px 20px;
     width: 90%;
-    max-width: 320px; /* mais estreito no mobile */
+    max-width: 350px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
   }
 
   .titulo-entrada {
     font-size: 2em;
-    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
-  input[type="password"],
-  button {
+  input[type="password"], button {
     font-size: 1em;
     padding: 10px;
   }
