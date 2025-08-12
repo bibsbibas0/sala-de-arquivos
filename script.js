@@ -2,7 +2,7 @@
 
 /* ======== Configurações ======== */
 /* Senhas válidas (adicione/remova strings conforme quiser) */
-const SENHAS_VALIDAS = ["040739", "0407", "leandro09", "1891"];
+const SENHAS_VALIDAS = ["040739"];
 
 /* ======== Função de verificação de senha (global) ======== */
 window.verificarSenha = function() {
