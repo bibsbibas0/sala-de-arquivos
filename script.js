@@ -1,4 +1,4 @@
-/* script.js (VERSÃO ATUALIZADA: adicionada setLoginModeClass) */
+/* script.js (VERSÃO ATUALIZADA: setLoginModeClass + verificarSenha corrigida) */
 
 /* ======== Configurações ======== */
 /* Senhas válidas (adicione/remova strings conforme quiser) */
@@ -12,19 +12,33 @@ window.verificarSenha = function() {
   const sala = document.getElementById("sala");
   const senha = senhaEl ? senhaEl.value.trim() : "";
 
-  if (SENHAS_VALIDAS.includes(senha)) {
+  if (SENHAS_VALIDAS && Array.isArray(SENHAS_VALIDAS) && SENHAS_VALIDAS.includes(senha)) {
     if (porta) porta.style.display = "none";
     if (sala) sala.style.display = "block";
     if (erro) erro.textContent = "";
+
+    // atualiza classe do body (remove login-mode)
+    setLoginModeClass();
+
+    // forçar o scroll pro topo (um pequeno delay garante que o navegador já atualizou layout)
+    setTimeout(function() {
+      // remover qualquer resto de "login-mode" por segurança
+      document.body.classList.remove('login-mode');
+      // reset de scroll cross-browser
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      // garantir que a lista comece do topo
+      const arquivos = document.querySelector('.arquivos');
+      if (arquivos) arquivos.scrollTop = 0;
+    }, 60);
+
   } else {
     if (erro) {
       erro.textContent = "Acesso negado. Sua identidade não foi reconhecida.";
       erro.style.color = "#ff6b6b";
     }
   }
-
-  // Atualiza a classe do body para ativar/desativar o modo login (corrige comportamento mobile)
-  setLoginModeClass();
 };
 
 /* ======== Estado global ======== */
@@ -150,12 +164,12 @@ window.fecharRelatorio = function(id) {
   removeMobileEdgeClose();
 
   if (overlay) {
-    overlay.classList.remove("active");
-    overlay.setAttribute("aria-hidden", "true");
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
   }
 
-  const sala = document.getElementById("sala");
-  if (sala) sala.style.display = "block";
+  const sala = document.getElementById('sala');
+  if (sala) sala.style.display = 'block';
 
   document.body.style.overflow = "";
   window.currentOpenRel = null;
