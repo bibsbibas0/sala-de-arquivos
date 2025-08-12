@@ -53,8 +53,12 @@ document.getElementById("senha").addEventListener("keypress", function(event) {
 })();
 
 /* --- abre relatório: mostra overlay + documento (modal) --- */
+/* --- abre relatório: mostra overlay + documento (modal) --- */
+window.currentOpenRel = null;     // id do relatório atualmente aberto
+window._mobileEdgeHandler = null; // handle pra remover depois
+
 function abrirRelatorio(id) {
-  // esconder todos os relatórios por segurança
+  // fechar qualquer relatório aberto
   document.querySelectorAll('.pagina-relatorio, .documento').forEach(function(el){
     el.style.display = 'none';
   });
@@ -69,6 +73,124 @@ function abrirRelatorio(id) {
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden','false');
   }
+
+  // mostrar o relatório escolhido
+  const rel = document.getElementById(id);
+  if (rel) {
+    if (!rel.classList.contains('documento')) rel.classList.add('documento');
+    rel.style.display = 'block';
+
+    // garantir que o relatório esteja "acima" (z-index)
+    rel.style.zIndex = '10000';
+
+    // travar scroll do body (fundo)
+    document.body.style.overflow = 'hidden';
+    window.currentOpenRel = id;
+
+    // adicionar comportamento de fechar ao clicar nas bordas APENAS em telas pequenas
+    addMobileEdgeClose();
+    // rolar ao topo pra evitar posições estranhas
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    console.warn('Relatório não encontrado: ' + id);
+    if (overlay) overlay.classList.remove('active');
+    if (sala) sala.style.display = 'block';
+    document.body.style.overflow = '';
+  }
+}
+
+/* --- fecha relatório e volta pra sala --- */
+function fecharRelatorio(id) {
+  // esconder relatório
+  const rel = document.getElementById(id);
+  if (rel) rel.style.display = 'none';
+
+  // remove comportamento mobile
+  removeMobileEdgeClose();
+
+  // fecha overlay
+  const overlay = document.getElementById('overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden','true');
+  }
+
+  // volta pra sala
+  const sala = document.getElementById('sala');
+  if (sala) sala.style.display = 'block';
+
+  // liberar scroll
+  document.body.style.overflow = '';
+  window.currentOpenRel = null;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* --- função que adiciona listener para fechar ao tocar nas bordas do ecrã (mobile) --- */
+function addMobileEdgeClose() {
+  // remove caso já exista
+  removeMobileEdgeClose();
+
+  // só ativa em telas pequenas (ajuste o valor se quiser)
+  if (window.innerWidth > 700) return;
+
+  const handler = function(e) {
+    // pega coords do clique/toque (suporta touch e click)
+    let x = 0, y = 0;
+    if (e.changedTouches && e.changedTouches.length) {
+      x = e.changedTouches[0].clientX;
+      y = e.changedTouches[0].clientY;
+    } else {
+      x = e.clientX;
+      y = e.clientY;
+    }
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    const margin = 60; // distância da borda para considerar "clique na borda"
+
+    // se o toque/click ocorreu próximo das bordas -> fechar
+    if (x < margin || x > (w - margin) || y < margin || y > (h - margin)) {
+      if (window.currentOpenRel) {
+        fecharRelatorio(window.currentOpenRel);
+      }
+    }
+  };
+
+  // salva handler global pra remover depois
+  window._mobileEdgeHandler = handler;
+  // usar touchend e click pra compatibilidade
+  document.addEventListener('touchend', handler, { passive: true });
+  document.addEventListener('click', handler);
+}
+
+/* --- remove handler mobile se existir --- */
+function removeMobileEdgeClose() {
+  if (window._mobileEdgeHandler) {
+    document.removeEventListener('touchend', window._mobileEdgeHandler);
+    document.removeEventListener('click', window._mobileEdgeHandler);
+    window._mobileEdgeHandler = null;
+  }
+}
+
+/* --- mantém o clique no overlay (fora do documento) fechando a modal também --- */
+(function ensureOverlayClickClose(){
+  const overlay = document.getElementById('overlay');
+  if (!overlay) return;
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) {
+      // fechar qualquer relatório aberto
+      document.querySelectorAll('.pagina-relatorio, .documento').forEach(function(el){
+        el.style.display = 'none';
+      });
+      overlay.classList.remove('active');
+      const sala = document.getElementById('sala');
+      if (sala) sala.style.display = 'block';
+      document.body.style.overflow = '';
+      removeMobileEdgeClose();
+      window.currentOpenRel = null;
+    }
+  });
+})();
+
 
   // mostra o relatório escolhido
   const rel = document.getElementById(id);
@@ -89,17 +211,6 @@ function abrirRelatorio(id) {
     document.body.style.overflow = '';
   }
 }
-
-/* --- fecha relatório e volta pra sala --- */
-function fecharRelatorio(id) {
-  const rel = document.getElementById(id);
-  if (rel) rel.style.display = 'none';
-
-  const overlay = document.getElementById('overlay');
-  if (overlay) {
-    overlay.classList.remove('active');
-    overlay.setAttribute('aria-hidden','true');
-  }
 
   // volta pra sala
   const sala = document.getElementById('sala');
