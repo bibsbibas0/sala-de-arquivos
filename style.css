@@ -375,7 +375,7 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* força altura total */
+    height: 100vh;
     padding: 0;
     margin: 0;
   }
