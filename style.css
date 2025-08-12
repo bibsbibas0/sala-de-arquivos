@@ -411,6 +411,30 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
   .pagina-relatorio h1 {
     font-size: 1.5em;
   }
+  
+/* === overlay e documento: permitir scroll em conteúdos grandes (mobile friendly) === */
+.overlay {
+  overflow-y: auto;                 /* overlay rolável se conteúdo for maior que viewport */
+  -webkit-overflow-scrolling: touch;
+  align-items: center;              /* centraliza conteúdo quando pequeno */
+}
+
+/* garante que o documento nunca ultrapasse a tela e tenha scroll interno */
+.documento {
+  max-height: calc(100vh - 120px);  /* deixa margem superior+inferior para "respirar" */
+  overflow-y: auto;                 /* rolagem interna do documento */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ajustes finos mobile */
+@media (max-width: 700px) {
+  .overlay { padding: 20px 12px; }
+  .documento {
+    max-height: calc(100vh - 96px);
+    padding: 20px;
+    margin: 0 auto;
+  }
+}
 
   .pagina-relatorio p {
     font-size: 1em;
