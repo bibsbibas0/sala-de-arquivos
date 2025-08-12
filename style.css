@@ -440,3 +440,25 @@ button:hover { transform: translateY(-2px); background-color:#7a523b; }
     font-size: 1em;
   }
 }
+
+/* === Correção mobile: garantir comportamento normal fora do modo login === */
+@media (max-width: 700px) {
+
+  /* quando NÃO estivermos no modo login, o body volta ao fluxo normal */
+  body:not(.login-mode) {
+    display: block !important;
+    height: auto !important;
+  }
+
+  /* evita que a tela principal (#sala) force uma min-height estranha */
+  #sala {
+    min-height: auto !important;
+    padding-top: 18px;
+    box-sizing: border-box;
+  }
+
+  /* garante que a grade de arquivos comece do topo */
+  .arquivos {
+    margin-top: 8px !important;
+  }
+}
